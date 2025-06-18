@@ -22,7 +22,7 @@ class AudioDurationCalculator:
             }
         }
     
-    RETURN_TYPES = ("INT", "INT")
+    RETURN_TYPES = ("FLOAT", "INT")
     RETURN_NAMES = ("audio_duration_seconds", "frame_count")
     FUNCTION = "calculate"
     CATEGORY = "audio/analysis"
@@ -50,10 +50,10 @@ class AudioDurationCalculator:
             # Calculează frame count = duration * fps
             frame_count = int(duration_seconds * fps)
             
-            # Return duration ca INT (rotunjit)
-            duration_int = int(round(duration_seconds))
+            # Return duration ca FLOAT (cu zecimale)
+            duration_float = float(duration_seconds)
             
-            return (duration_int, frame_count)
+            return (duration_float, frame_count)
             
         except Exception as e:
             print(f"AudioDurationCalculator error: {str(e)}")
